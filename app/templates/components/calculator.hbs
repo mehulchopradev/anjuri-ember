@@ -1,17 +1,36 @@
 <form>
     <div class="row">
-        <input type="text" placeholder="Enter 1st No">
-        <select>
+        <Input
+            @type="text"
+            data-ref="first-field"
+            @placeholder="Enter 1st No"
+            @key-up={{action "onClearAns"}}
+            @value={{this.firstNo}}/>
+        <select data-ref="operation-select" onchange={{action "onOperationChange" value="target.value"}}>
             <option>+</option>
             <option>-</option>
             <option>*</option>
         </select>
-        <input type="text" placeholder="Enter 2nd No">
+        <Input
+            @type="text"
+            data-ref="second-field"
+            @placeholder="Enter 2nd No"
+            @key-up={{action "onClearAns"}}
+            @value={{this.secondNo}}/>
     </div>
     <div class="row">
-        <button>Calculate</button>
+        <button disabled={{this.isCalcDisabled}} data-ref="calcBtn" {{action "onCalculate"}}>Calculate</button>
     </div>
     <div class="row">
-        <input type="text" placeholder="Ans" readonly>
+        <input type="text" data-ref="ans-field" placeholder="Ans" readonly value={{this.ans}}>
     </div>
 </form>
+<div class="row">
+    <p data-ref="firstLabel">First No: {{this.firstNo}}</p>
+    <p data-ref="operationLabel">Operation: {{this.operation}}</p>
+    <p data-ref="secondLabel">Second No: {{this.secondNo}}</p>
+
+    {{#if this.isAnsVisible}}
+        <p data-ref="ansLabel">Ans is {{this.ans}}</p>
+    {{/if}}
+</div>
