@@ -7,6 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('calculator', { path: '/calc'});
+  this.route('todos');
+  this.route('library');
 });
 
 export default Router;

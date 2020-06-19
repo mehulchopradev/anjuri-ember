@@ -23,8 +23,6 @@ module('Integration | Component | calculator', function(hooks) {
   test('it renders the component with default values filled in', async function(assert) {
     await render(template);
 
-    await pauseTest();
-
     assert.dom(selectors.firstField).hasValue('10');
     assert.dom(selectors.secondField).hasValue('20');
     assert.dom(selectors.operationSelect).hasValue('+');

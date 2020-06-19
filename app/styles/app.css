@@ -10,3 +10,26 @@
 .row > select {
     margin-right: 20px;
 }
+
+.header {
+    text-align: center;
+}
+
+.nav {
+    text-align: center;
+    padding: 10px;
+}
+
+.nav > a {
+    margin-right: 20px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 500px;
+}
+
+h2 {
+    text-align: center;
+}

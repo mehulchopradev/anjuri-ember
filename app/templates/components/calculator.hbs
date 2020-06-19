@@ -26,11 +26,10 @@
     </div>
 </form>
 <div class="row">
-    <p data-ref="firstLabel">First No: {{this.firstNo}}</p>
-    <p data-ref="operationLabel">Operation: {{this.operation}}</p>
-    <p data-ref="secondLabel">Second No: {{this.secondNo}}</p>
-
-    {{#if this.isAnsVisible}}
-        <p data-ref="ansLabel">Ans is {{this.ans}}</p>
-    {{/if}}
+    <LiveCalcResults
+        @firstNo={{this.firstNo}}
+        @secondNo={{this.secondNo}}
+        @operation={{this.operation}}
+        @isAnsVisible={{this.isAnsVisible}}
+        @ans={{this.ans}}/>
 </div>
