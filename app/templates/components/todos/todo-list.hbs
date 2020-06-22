@@ -1,0 +1,5 @@
+{{#each this.todos as |todo|}}
+    <div>
+        <Input @type="checkbox" @checked={{todo.done}}/>{{title todo.description}}
+    </div>
+{{/each}}

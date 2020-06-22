@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, pauseTest, fillIn, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-const template = hbs`<Calculator/>`;
+const template = hbs`<Calculator @first={{this.first}} @second={{this.second}}/>`;
 
 const selectors = {
   firstField: '[data-ref="first-field"]',
@@ -20,13 +20,16 @@ const selectors = {
 module('Integration | Component | calculator', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component with default values filled in', async function(assert) {
+  test('it renders the component with default values passed that are filled in', async function(assert) {
+    this.set('first', 30);
+    this.set('second', 40);
+
     await render(template);
 
-    assert.dom(selectors.firstField).hasValue('10');
-    assert.dom(selectors.secondField).hasValue('20');
+    assert.dom(selectors.firstField).hasValue('30');
+    assert.dom(selectors.secondField).hasValue('40');
     assert.dom(selectors.operationSelect).hasValue('+');
-    assert.dom(selectors.ansField).hasValue('30');
+    assert.dom(selectors.ansField).hasValue('70');
   });
 
   test('it performs the calculation', async function(assert) {
@@ -68,6 +71,9 @@ module('Integration | Component | calculator', function(hooks) {
   });
 
   test('it disables/enables calculate button accordingly', async function(assert) {
+    this.set('first', 90);
+    this.set('second', 100);
+  
     await render(template);
 
     assert.dom(selectors.calcBtn).isNotDisabled();

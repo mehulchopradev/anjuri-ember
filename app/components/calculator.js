@@ -2,9 +2,9 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-    firstNo: 10,
-    secondNo: 20,
-    ans: 30,
+    firstNo: null,
+    secondNo: null,
+    ans: null,
     operation: '+',
     isAnsVisible: true,
 
@@ -12,6 +12,15 @@ export default Component.extend({
        const { firstNo, secondNo } = this;
        return  isNaN(parseInt(firstNo)) || isNaN(parseInt(secondNo));
     }),
+
+    didReceiveAttrs() {
+        this._super(...arguments);
+
+        const { first, second } = this;
+        this.firstNo = first;
+        this.secondNo = second;
+        this.ans = this.firstNo + this.secondNo;
+    },
 
     actions: {
         onCalculate() {

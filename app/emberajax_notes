@@ -1,0 +1,8 @@
+
+Dependency injection (DI)
+calculator Route object              ember-ajax ajax object (service)
+                                                request(url) {}
+    model() {
+        const a = new ajax();
+        a.request('http://dgdfgfh')
+    }
