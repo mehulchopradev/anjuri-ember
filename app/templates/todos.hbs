@@ -6,5 +6,11 @@
 </div>
 <div class="row">
     <Todos::TodoList
-        @todos={{this.todos}}/>
+        @todos={{this.todos}}
+        @onTodoChecked={{action "onCheck"}}/>
 </div>
+<div class="row">
+    <button disabled>Clear Completed Todos</button>
+    <span data-ref="doneTodosCount">({{this.doneTodosCount}})</span>
+</div>
+

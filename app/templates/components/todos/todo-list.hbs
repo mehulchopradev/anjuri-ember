@@ -1,6 +1,10 @@
 {{#each this.todos as |todo|}}
     <div>
-        <Input @type="checkbox" @checked={{todo.done}}/>
+        <input
+            data-ref="checkbox"
+            type="checkbox"
+            checked={{todo.done}}
+            oninput={{action "onCheck" value="target"}}/>
         <span data-ref="description">{{title todo.description}}</span>
         (<i data-ref="createdDate">{{moment-format todo.createdDate 'DD/MM/YYYY'}}</i>)
     </div>
