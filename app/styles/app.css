@@ -33,3 +33,15 @@
 h2 {
     text-align: center;
 }
+
+.todo-form {
+    padding: 20px;
+}
+
+.todo-form > input {
+    margin-right: 20px;
+}
+
+.todo-form > button {
+    margin-right: 10px;
+}

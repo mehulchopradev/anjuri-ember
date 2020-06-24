@@ -1,0 +1,5 @@
+<p class="todo-form">
+    <Input @type="text" data-ref="newTodo" @placeholder="Enter todo to save" @value={{this.newTodo}}/>
+    <button data-ref="saveBtn" disabled={{this.isDisabled}} {{action "onSave"}}>Save</button>
+    <span data-ref="todosCount">({{@todosCount}})</span>
+</p>

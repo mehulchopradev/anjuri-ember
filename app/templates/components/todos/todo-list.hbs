@@ -1,5 +1,7 @@
 {{#each this.todos as |todo|}}
     <div>
-        <Input @type="checkbox" @checked={{todo.done}}/>{{title todo.description}}
+        <Input @type="checkbox" @checked={{todo.done}}/>
+        <span data-ref="description">{{title todo.description}}</span>
+        (<i data-ref="createdDate">{{moment-format todo.createdDate 'DD/MM/YYYY'}}</i>)
     </div>
 {{/each}}

@@ -1,1 +1,10 @@
 <h2>Todos Application</h2>
+<div class="row">
+    <Todos::TodoForm
+        @todosCount={{this.todosCount}}
+        @save={{action "onNewTodo"}}/>
+</div>
+<div class="row">
+    <Todos::TodoList
+        @todos={{this.todos}}/>
+</div>
