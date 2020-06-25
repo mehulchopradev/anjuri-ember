@@ -11,11 +11,20 @@ export default Controller.extend({
         return todos.filter(todo => todo.done).length;
     }), */
 
-    doneTodosCount: 0,
+    doneTodosCount: computed('checkedTodos.[]', function () {
+        return this.checkedTodos.length;
+    }),
+
+    isDisabled: computed('checkedTodos.[]', function () {
+        return this.checkedTodos.length == 0;
+    }),
+
+    checkedTodos: [],
 
     actions: {
         onNewTodo(newTodo) {
             this.todos.pushObject({
+                id: new Date().getTime(),
                 description: newTodo,
                 done: false,
                 createdDate: moment(new Date()),
@@ -25,11 +34,25 @@ export default Controller.extend({
         },
 
         onCheck(checkedStatus) {
-            if (checkedStatus) {
-                this.set('doneTodosCount', this.doneTodosCount + 1);
+            const { id, checked } = checkedStatus;
+            if (checked) {
+                this.checkedTodos.pushObject(Number(id));
             } else {
-                this.set('doneTodosCount', this.doneTodosCount - 1);
+                this.checkedTodos.removeObject(Number(id));
             }
+        },
+
+        onClearCompletedTodos() {
+            // Would need a list of todos marked for completion (done=true) ?????
+            // from todos remove the above set of todos
+
+            const { checkedTodos, todos } = this;
+            const notDoneTodos = todos.filter((todo) => {
+                return !checkedTodos.includes(todo.id);
+            });
+
+            this.set('todos', notDoneTodos);
+            this.checkedTodos.clear();
         }
     }
 });

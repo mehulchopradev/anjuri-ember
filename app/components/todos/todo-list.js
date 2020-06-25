@@ -11,9 +11,12 @@ export default Component.extend({
 
     actions: {
         onCheck(target) {
-            const { checked } = target;
+            const { checked, value } = target;
             const { onTodoChecked } = this;
-            onTodoChecked(checked);
+            onTodoChecked({
+                checked,
+                id: value,
+            });
         }
     }
 });

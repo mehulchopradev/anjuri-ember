@@ -4,6 +4,7 @@
             data-ref="checkbox"
             type="checkbox"
             checked={{todo.done}}
+            value={{todo.id}}
             oninput={{action "onCheck" value="target"}}/>
         <span data-ref="description">{{title todo.description}}</span>
         (<i data-ref="createdDate">{{moment-format todo.createdDate 'DD/MM/YYYY'}}</i>)
