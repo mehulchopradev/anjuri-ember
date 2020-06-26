@@ -45,3 +45,7 @@ h2 {
 .todo-form > button {
     margin-right: 10px;
 }
+
+.book-table {
+    margin: auto;
+}

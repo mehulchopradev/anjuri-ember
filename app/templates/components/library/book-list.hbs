@@ -1,0 +1,28 @@
+<table border="1" class="book-table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Title
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each @booklist as |book|}}
+            <tr>
+                <td>
+                    {{book.id}}
+                </td>
+                <td>
+                    {{book.title}}
+                </td>
+                <td>
+                    <a href="">Details</a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

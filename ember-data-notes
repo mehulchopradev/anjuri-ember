@@ -1,0 +1,24 @@
+Ember data
+
+Application             Store(singleton)               Adapter   -  XHR -                  Server
+
+Application  ask the Store for records of model of type `book`
+Store immediately returns a Promise to Application and checks whether it has records of model `book` in its memory
+    If no records of `book` model, store is going to ask the Adapter to fetch book data from server
+    Adapter immediately return a Promise to Store and will make an XHR GET call to fetch 
+    the books data from the server
+        The book data from the server will reach as JSON data to the Adapter
+        Adapter will resolve the promise it gave to the Store with the json data
+        Store will convert json data to ember data model records and will resolve the promise
+        it gave to the Application with the ember data model records. The store will store all those
+        ember data model records in its memory
+
+Application  ask the Store for records of model of type `book`
+Store immediately returns a Promise to Application and checks whether it has records of model `book`.
+Which it will find and it will resolve the promise immediately with the records
+Store is going to ask the Adapter to fetch book data from server
+Adapter immediately return a Promise to Store and will make an XHR GET call to fetch the books data from the server
+        The book data from the server will reach as JSON data to the Adapter
+        Adapter will resolve the promise it gave to the Store with the json data
+        Store will convert json data to ember data model records and will replace the existing ember
+        data model records copy that it has with the one coming from the server
