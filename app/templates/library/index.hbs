@@ -1,0 +1,13 @@
+<Library::BookList @booklist={{this.model}}/>
+
+{{#if (not this.formVisible)}}
+    <div class="row">
+        <button {{action "onShowBookForm"}}>Add book</button>
+    </div>
+{{/if}}
+
+{{#if this.formVisible}}
+    <div class="row">
+        <Library::BookForm @onCancel={{action "onCancel"}}/>
+    </div>
+{{/if}}

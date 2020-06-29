@@ -12,17 +12,19 @@
     </thead>
     <tbody>
         {{#each @booklist as |book|}}
-            <tr>
-                <td>
-                    {{book.id}}
-                </td>
-                <td>
-                    {{book.title}}
-                </td>
-                <td>
-                    <a href="">Details</a>
-                </td>
-            </tr>
+            {{#if book.id}}
+                <tr>
+                    <td>
+                        {{book.id}}
+                    </td>
+                    <td>
+                        {{book.title}}
+                    </td>
+                    <td>
+                        <LinkTo @route="library.detail" @model={{book.id}}>Details</LinkTo>
+                    </td>
+                </tr>
+            {{/if}}
         {{/each}}
     </tbody>
 </table>

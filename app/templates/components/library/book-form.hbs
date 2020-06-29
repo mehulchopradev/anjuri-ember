@@ -1,15 +1,31 @@
+{{#if this.error}}
+    <div class="error">
+        Unable to save. Please try again later
+    </div>
+{{/if}}
 <form>
     <p>
-        <input type="text" placeholder="Enter the title of book">
+        <Input
+            @type="text"
+            @placeholder="Enter the title of book"
+            @value={{this.model.title}}/>
     </p>
     <p>
-        <input type="number" placeholder="Enter the price of book">
+        <Input
+            @type="number"
+            @placeholder="Enter the price of book"
+            @value={{this.model.price}}
+            />
     </p>
     <p>
-        <input type="number" placeholder="Enter Pages of the book">
+        <Input
+            @type="number"
+            @placeholder="Enter Pages of the book"
+            @value={{this.model.pages}}
+            />
     </p>
     <p>
-        <button>Save</button>
+        <button {{action "onSave"}}>Save</button>
         <a {{action @onCancel}}>Cancel</a>
     </p>
 </form>

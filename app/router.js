@@ -9,7 +9,10 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('calculator', { path: '/calc'});
   this.route('todos');
-  this.route('library');
+  this.route('library', function() {
+    this.route('index');
+    this.route('detail', { path: 'details/:book_id'});
+  });
 });
 
 export default Router;

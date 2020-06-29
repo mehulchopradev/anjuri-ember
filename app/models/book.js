@@ -6,4 +6,8 @@ const { Model } = DS;
 export default Model.extend({
     // every record created from the model class will by default have an id attribute (number)
     title: DS.attr('string'),
+
+    price: DS.attr('number'),
+
+    pages: DS.attr('number')
 });

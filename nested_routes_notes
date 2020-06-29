@@ -1,0 +1,10 @@
+/library
+Application route            -> Library route
+application.hbs {{outlet}}             -> library.hbs
+
+
+/library/index
+application.hbs {{outlet}} --> library.hbs {{outlet}} --> index.hbs
+
+/library/details/2
+application.hbs {{outlet}} --> library.hbs {{outlet}} ---> detail.hbs

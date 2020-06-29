@@ -49,3 +49,8 @@ h2 {
 .book-table {
     margin: auto;
 }
+
+.error {
+    color: white;
+    background-color: red;
+}
