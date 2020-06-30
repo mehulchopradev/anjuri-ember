@@ -9,5 +9,9 @@ export default Model.extend({
 
     price: DS.attr('number'),
 
-    pages: DS.attr('number')
+    pages: DS.attr('number'),
+
+    publicationHouse: DS.attr('string'),
+
+    ratings: DS.attr('number')
 });

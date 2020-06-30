@@ -1,1 +1,15 @@
-<h2>Book Details</h2>
+<div class="row">
+    <h2>Book Details</h2>
+    <h1>{{this.model.title}}</h1>
+    {{#if this.model.pages}}
+        Price: <i>{{this.model.price}}</i><br>
+        Pages: <i>{{this.model.pages}}</i><br>
+
+        {{#if this.model.publicationHouse}}
+            Publication House: <i>{{this.model.publicationHouse}}</i><br>
+            Ratings: <i>{{this.model.ratings}}</i>
+        {{/if}}
+    {{else}}
+        <h3 class="row">Loading.... Please wait</h3>
+    {{/if}}
+</div>

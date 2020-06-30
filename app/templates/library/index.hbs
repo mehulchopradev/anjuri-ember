@@ -1,3 +1,9 @@
+<div class="row">
+    <Input @type="text" @placeholder="Search by title" @value={{this.searchTitle}}/>
+    <button {{action "onSearch"}}>Search</button>
+    <a href="" {{action "onClear"}}>Clear</a>
+</div>
+
 <Library::BookList @booklist={{this.model}}/>
 
 {{#if (not this.formVisible)}}
