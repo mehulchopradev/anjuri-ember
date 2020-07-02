@@ -15,5 +15,10 @@ export default Service.extend({
         });
 
         return books;
+    },
+
+    async getBookById(bookId) {
+        const book = await this.store.findRecord('book', bookId, { reload: true });
+        return book;
     }
 });

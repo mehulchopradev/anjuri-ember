@@ -4,7 +4,7 @@
     <a href="" {{action "onClear"}}>Clear</a>
 </div>
 
-<Library::BookList @booklist={{this.model}}/>
+<Library::BookList @onEdit={{action "onEdit"}} @booklist={{this.model}}/>
 
 {{#if (not this.formVisible)}}
     <div class="row">
@@ -14,6 +14,6 @@
 
 {{#if this.formVisible}}
     <div class="row">
-        <Library::BookForm @onCancel={{action "onCancel"}}/>
+        <Library::BookForm @book={{this.book}} @onSaveSuccess={{action "onSave"}} @onCancel={{action "onCancel"}}/>
     </div>
 {{/if}}

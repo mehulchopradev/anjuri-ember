@@ -8,6 +8,7 @@
                 Title
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,14 @@
                     </td>
                     <td>
                         <LinkTo @route="library.detail" @model={{book.id}}>Details</LinkTo>
+                    </td>
+                    <td>
+                        <!-- {{#if editTask.isRunning}}
+                            Please wait....
+                        {{else}}
+                            <a style="cursor: pointer;" onclick={{perform editTask book}}>Edit</a>
+                        {{/if}} -->
+                        <a style="cursor: pointer;" onclick={{perform editTask book}}>Edit</a>
                     </td>
                 </tr>
             {{/if}}
