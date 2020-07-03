@@ -3,29 +3,45 @@
         Unable to save. Please try again later
     </div>
 {{/if}}
+{{#if this.model.isInvalid}}
+  <p>There were errors in your form:</p>
+  <ul>
+    {{#each this.model.errors as |error|}}
+      <li>{{error.key}}: {{error.validation}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
 <form>
     <p>
         <Input
             @type="text"
             @placeholder="Enter the title of book"
-            @value={{@book.title}}/>
+            @value={{this.model.title}}/>
     </p>
     <p>
         <Input
             @type="number"
             @placeholder="Enter the price of book"
-            @value={{@book.price}}
+            @value={{this.model.price}}
             />
     </p>
     <p>
         <Input
             @type="number"
             @placeholder="Enter Pages of the book"
-            @value={{@book.pages}}
+            @value={{this.model.pages}}
             />
     </p>
     <p>
         <button {{action "onSave"}}>Save</button>
         <a {{action @onCancel}}>Cancel</a>
+        <a {{action "onReset"}}>Reset</a>
     </p>
 </form>
+
+<h2>Changes to be applied very soon!</h2>
+<ul>
+  {{#each this.model.changes as |change|}}
+    <li>{{change.key}}: {{get this.book change.key}} -> {{change.value}}</li>
+  {{/each}}
+</ul>

@@ -13,7 +13,6 @@ export default Route.extend({
     },
 
     async model(params) {
-        debugger;
         const { book_id } = params;
         const book = await this.store.findRecord('book', book_id);
         return book;

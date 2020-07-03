@@ -9,7 +9,28 @@
             Publication House: <i>{{this.model.publicationHouse}}</i><br>
             Ratings: <i>{{this.model.ratings}}</i>
         {{/if}}
+
+        {{#if this.model.reviews}}
+            {{#each this.model.reviews as |review|}}
+                <div class="row">
+                    {{review.description}} --- <i>{{review.name}}</i>
+                </div>
+            {{/each}}
+        {{/if}}
     {{else}}
         <h3 class="row">Loading.... Please wait</h3>
     {{/if}}
+</div>
+<div class="row">
+    <form>
+        <p>
+            <Input @type="text" @placeholder="Enter description" @value={{this.description}}/>
+        </p>
+        <p>
+            <Input @type="text" @placeholder="Reviewer name" @value={{this.name}}/>
+        </p>
+        <p>
+            <button {{action "onSaveReview"}}>Save</button>
+        </p>
+    </form> 
 </div>

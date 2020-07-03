@@ -13,5 +13,7 @@ export default Model.extend({
 
     publicationHouse: DS.attr('string'),
 
-    ratings: DS.attr('number')
+    ratings: DS.attr('number'),
+
+    reviews: DS.hasMany('review')
 });
